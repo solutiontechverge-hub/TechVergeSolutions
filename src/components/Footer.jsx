@@ -2,21 +2,41 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Footer = ({ onContactClick }) => {
+  // Define your social media links here
+  const socialLinks = [
+    { label: 'LN', url: 'https://www.linkedin.com/company/techverg-solution/', icon: 'LN' },
+    { label: 'TW', url: 'https://twitter.com/yourhandle', icon: 'TW' },
+    { label: 'IG', url: 'https://www.instagram.com/techvergsolutions/', icon: 'IG' }
+  ];
+
   return (
     <footer style={fStyles.footer}>
       <div className="container">
         <div style={fStyles.grid}>
           {/* Column 1: Brand Pitch */}
           <div style={fStyles.col}>
-            <h2 style={fStyles.logo}>Techverge<span style={{color: '#2ecc71'}}>.</span></h2>
+            <h2 style={fStyles.logo}>Techverge Solution<span style={{color: '#2ecc71'}}>.</span></h2>
             <p style={fStyles.description}>
-              At Techverge Solutions, we craft powerful digital experiences. 
+              At Techverge Solution, we craft powerful digital experiences. 
               Turning complex ideas into seamless, scalable solutions for 
               startups and enterprises worldwide.
             </p>
             <div style={fStyles.socials}>
-               {['LN', 'TW', 'IG'].map(soc => (
-                 <motion.div key={soc} whileHover={{ y: -5, color: '#2ecc71' }} style={fStyles.socIcon}>{soc}</motion.div>
+               {socialLinks.map(soc => (
+                 <a 
+                   key={soc.label} 
+                   href={soc.url} 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   style={{ textDecoration: 'none' }}
+                 >
+                   <motion.div 
+                     whileHover={{ y: -5, color: '#2ecc71', borderColor: '#2ecc71' }} 
+                     style={fStyles.socIcon}
+                   >
+                     {soc.icon}
+                   </motion.div>
+                 </a>
                ))}
             </div>
           </div>
@@ -28,7 +48,8 @@ const Footer = ({ onContactClick }) => {
               <li><a href="#home" style={fStyles.link}>Home</a></li>
               <li><a href="#aboutus" style={fStyles.link}>Who We Are</a></li>
               <li><a href="#services" style={fStyles.link}>Our Services</a></li>
-              <li><a href="#projects" style={fStyles.link}>Testimonials</a></li>
+              <li><a href="#projects" style={fStyles.link}>Projects</a></li>
+              <li><a href="#testimonials" style={fStyles.link}>Testimonials</a></li>
             </ul>
           </div>
 
@@ -70,7 +91,12 @@ const fStyles = {
   logo: { fontSize: '2rem', fontWeight: '800', marginBottom: '25px' },
   description: { color: '#777', lineHeight: '1.8', fontSize: '1rem', marginBottom: '25px' },
   socials: { display: 'flex', gap: '15px' },
-  socIcon: { width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #222', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', cursor: 'pointer', color: '#888' },
+  socIcon: { 
+    width: '40px', height: '40px', borderRadius: '50%', 
+    border: '1px solid #222', display: 'flex', alignItems: 'center', 
+    justifyContent: 'center', fontSize: '0.8rem', cursor: 'pointer', 
+    color: '#888', transition: '0.3s' 
+  },
   title: { fontSize: '1.2rem', fontWeight: '700', marginBottom: '30px', position: 'relative' },
   list: { listStyle: 'none', padding: 0 },
   link: { color: '#777', textDecoration: 'none', marginBottom: '15px', display: 'block', transition: '0.3s' },

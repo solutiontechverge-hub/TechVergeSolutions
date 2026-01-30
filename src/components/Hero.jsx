@@ -17,11 +17,11 @@ const Hero = ({ onContactClick }) => {
             transition={{ duration: 1.5 }}
             style={styles.overline}
           >
-            FUTURE-READY DIGITAL AGENCY
+            Future-Ready Digital Agency
           </motion.span>
           
           <h1 style={styles.title}>
-            Smart Digital <br/> 
+            Smart Digital<br/>
             <span className="gradient-text">Solutions</span>
           </h1>
           
@@ -29,15 +29,27 @@ const Hero = ({ onContactClick }) => {
             We build high-performing websites and mobile apps that help your business scale faster in the digital world.
           </p>
 
-          <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(46, 204, 113, 0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onContactClick} /* This triggers the Contact Modal */
-            className="btn"
-            style={styles.heroBtn}
-          >
-            Start Your Journey
-          </motion.button>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <motion.button 
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(46, 204, 113, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onContactClick}
+              className="btn"
+              style={styles.heroBtn}
+            >
+              Get Started
+            </motion.button>
+
+            <motion.a 
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn"
+              style={styles.outlineBtn}
+            >
+              Our Work
+            </motion.a>
+          </div>
         </motion.div>
 
         <motion.div 
@@ -83,6 +95,18 @@ const styles = {
     fontSize: '1.1rem', 
     fontWeight: 'bold', 
     cursor: 'pointer' 
+  },
+  outlineBtn: {
+    background: 'transparent',
+    color: '#2ecc71',
+    padding: '18px 45px',
+    border: '2px solid #2ecc71',
+    borderRadius: '50px',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    display: 'inline-block'
   },
   imageSide: { flex: 1, position: 'relative', textAlign: 'center' }
 };

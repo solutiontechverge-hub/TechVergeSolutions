@@ -20,10 +20,10 @@ const Navbar = ({ onContactClick }) => {
       }}
     >
       <div className="container" style={styles.container}>
-        <h2 style={styles.logo}>Techverge Solutions<span style={{color: '#2ecc71'}}>.</span></h2>
+        <h2 style={styles.logo}>Techverge Solution<span style={{color: '#2ecc71'}}>.</span></h2>
         
         <ul style={styles.links}>
-          {['Home', 'AboutUs', 'Services', 'Projects'].map((item) => (
+          {['Home', 'AboutUs', 'Services', 'Projects', 'Testimonials'].map((item) => (
             <li key={item}>
               <a href={`#${item.toLowerCase()}`} style={styles.link}>{item}</a>
             </li>

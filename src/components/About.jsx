@@ -32,7 +32,7 @@ const About = () => {
           <span style={styles.overline}>WHO WE ARE</span>
           <h2 style={styles.title}>A Software Development <span style={{color: '#2ecc71'}}>Powerhouse</span></h2>
           <p style={styles.description}>
-            At Techverge Solutions, we craft powerful digital experiences. We specialize in custom websites, 
+            At Techverge Solution, we craft powerful digital experiences. We specialize in custom websites, 
             mobile apps, and scalable platforms. With a focus on clean design and smart development, 
             our team turns complex ideas into seamless solutions.
           </p>

@@ -1,5 +1,5 @@
-/* 1. RESET & BASE STYLES 
-   This removes the white borders and gaps between sections 
+/* 1. RESET & BASE THEME 
+   Removes default margins/padding to stop white gaps between sections
 */
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a0a0a; /* Prevents white flashes while loading */
+  background-color: #0a0a0a;
 }
 
 body {
@@ -21,9 +21,11 @@ body {
   overflow-x: hidden;
 }
 
-/* 2. LAYOUT CONTAINERS */
+/* 2. LAYOUT CONTAINERS 
+   Standardizes the 'Page 8' alignment
+*/
 .container {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -31,14 +33,14 @@ body {
 section {
   position: relative;
   width: 100%;
-  padding: 120px 0; /* Consistent spacing for professional feel */
-  overflow: hidden;
+  padding: 100px 0; /* Standardized vertical spacing */
+  background-color: #0a0a0a;
 }
 
 /* 3. REUSABLE COMPONENTS */
 .btn {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 50px;
   font-weight: 700;
   font-size: 1rem;
@@ -65,19 +67,92 @@ section {
   margin-bottom: 12px;
 }
 
-/* 4. ANIMATION HELPERS */
-.floating-blob {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
-  filter: blur(60px);
-  border-radius: 50%;
-  z-index: -1;
-  pointer-events: none;
+/* 4. HERO SECTION ALIGNMENT */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; /* Space for the fixed navbar */
 }
 
-/* 5. FORM & INPUTS (For your Contact Modal) */
+/* 5. ABOUT SECTION GRID (Exact PDF Alignment) */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 480px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 6. SERVICES GRID [PDF Page 8, Section 3] */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.service-card {
+  background: #111;
+  padding: 45px 30px;
+  border-radius: 24px;
+  border: 1px solid #222;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: #2ecc71;
+}
+
+/* 7. STATS FLEXBOX [PDF Page 8, Section 4] */
+.stats-flex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.stat-item h3 {
+  font-size: 4.5rem;
+  color: #2ecc71;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  color: #888;
+  font-size: 1rem;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* 8. TESTIMONIALS FOCUS [PDF Page 8, Section 5] */
+.testimonial-card {
+  background: #111;
+  padding: 60px;
+  border-radius: 40px;
+  border: 1px solid #222;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 9. FORM & MODAL INPUTS */
 input, select, textarea {
   width: 100%;
   padding: 16px;
@@ -86,7 +161,16 @@ input, select, textarea {
   border-radius: 12px;
   color: #fff;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.project-card:hover .imageSpace {
+  border-color: #2ecc71 !important;
+  box-shadow: 0 20px 40px rgba(46, 204, 113, 0.1);
+}
+
+footer a:hover, footer span:hover {
+  color: #2ecc71 !important;
 }
 
 input:focus, textarea:focus {
@@ -94,22 +178,19 @@ input:focus, textarea:focus {
   outline: none;
 }
 
-/* 6. NAVBAR SPECIFICS 
-   Ensures the transparent-to-solid transition works
-*/
-nav {
-  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+/* 10. ANIMATION HELPERS */
+.floating-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(46, 204, 113, 0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
 }
 
-nav a {
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #2ecc71 !important;
-}
-
-/* 7. CUSTOM SCROLLBAR for that modern look */
+/* 11. CUSTOM SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -127,21 +208,18 @@ nav a:hover {
   background: #2ecc71;
 }
 
-/* 8. RESPONSIVE ADJUSTMENTS */
-@media (max-width: 768px) {
-  section {
-    padding: 80px 0;
+/* 12. RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
   }
-  
-  h1 {
-    font-size: 3rem !important;
-  }
-  
-  h2 {
-    font-size: 2.2rem !important;
-  }
+}
 
-  .nav-links {
-    display: none; /* You would typically implement a burger menu here */
-  }
+@media (max-width: 768px) {
+  h1 { font-size: 3rem !important; }
+  h2 { font-size: 2.2rem !important; }
+  .stat-item h3 { font-size: 3rem; }
+  .testimonial-card { padding: 30px; }
 }
