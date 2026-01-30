@@ -1,0 +1,147 @@
+/* 1. RESET & BASE STYLES 
+   This removes the white borders and gaps between sections 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a; /* Prevents white flashes while loading */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 2. LAYOUT CONTAINERS */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0; /* Consistent spacing for professional feel */
+  overflow: hidden;
+}
+
+/* 3. REUSABLE COMPONENTS */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.section-subtitle {
+  color: #2ecc71;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* 4. ANIMATION HELPERS */
+.floating-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 5. FORM & INPUTS (For your Contact Modal) */
+input, select, textarea {
+  width: 100%;
+  padding: 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #2ecc71;
+  outline: none;
+}
+
+/* 6. NAVBAR SPECIFICS 
+   Ensures the transparent-to-solid transition works
+*/
+nav {
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+}
+
+nav a {
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2ecc71 !important;
+}
+
+/* 7. CUSTOM SCROLLBAR for that modern look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2ecc71;
+}
+
+/* 8. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  section {
+    padding: 80px 0;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
+  
+  h2 {
+    font-size: 2.2rem !important;
+  }
+
+  .nav-links {
+    display: none; /* You would typically implement a burger menu here */
+  }
+}
